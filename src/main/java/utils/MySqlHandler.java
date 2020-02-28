@@ -25,7 +25,7 @@ public class MySqlHandler {
             }
             return connection;
         } catch(SQLException sqlex) {
-            throw new DbClientException("Application did not create connection to " + MySQL.HOST.value + " usind db " + MySQL.DB.value, sqlex);
+            throw new DbClientException("Application did not create connection to " + MySQL.HOST.value + " using db " + MySQL.DB.value, sqlex);
         }
     }
 }
