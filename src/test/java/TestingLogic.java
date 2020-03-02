@@ -13,21 +13,19 @@ import java.util.List;
 public class TestingLogic {
 
     private WebDriver driver = new Environment().getDriver();
-    private MainPage mainPage;
+    private BasePage basePage = new BasePage(driver);
+    private MainPage mainPage = basePage.getInstance(MainPage.class);
 
 
     @BeforeClass
-    public void setupWebDriver() {
+    public void openAutoRiaMainPage() {
         driver.manage().window().maximize();
         driver.get("https://auto.ria.com/");
-
-        BasePage basePage = new BasePage(driver);
-        mainPage = basePage.getInstance(MainPage.class);
     }
 
 
     @Test
-    public void doTest() {
+    public void doMagic() {
         System.out.println("BRANDS ==============================");
         List<String> brands = mainPage.getBrands(VehicleType.WATER_TRANSPORT);
 
@@ -42,7 +40,7 @@ public class TestingLogic {
 
 
     @AfterClass
-    public void tearDown() {
+    public void closeDriver() {
         driver.quit();
     }
 }
