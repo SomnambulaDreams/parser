@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface VehicleBrandDAO {
 
-    boolean addVehicleBrand(List<String> brandNames);
+    void addVehicleBrand(List<String> brandNames);
 }

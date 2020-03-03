@@ -10,9 +10,7 @@ public class VehicleBrandDAOImpl implements VehicleBrandDAO {
 
 
     @Override
-    public boolean addVehicleBrand(List<String> brandNames) {
-        boolean result = false;
-
+    public void addVehicleBrand(List<String> brandNames) {
         Connection connection = setConnection();
         PreparedStatement statement = setStatement(connection, "insert into VehicleBrands (Name) VALUES (?)");
         try {
@@ -30,9 +28,7 @@ public class VehicleBrandDAOImpl implements VehicleBrandDAO {
         } finally {
             close(statement, connection);
         }
-        return result;
     }
-
 
 
     private Connection setConnection() {
